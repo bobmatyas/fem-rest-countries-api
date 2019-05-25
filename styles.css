@@ -131,8 +131,20 @@ body {
   cursor: pointer;
 }
 
-
-
+.button--back {
+  background-image: url("imgs/icon-arrow-left-solid.svg");
+  background-repeat: none;
+  background-size: 10%;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  padding: 10px 40px;
+  color: #000;
+  font-weight: 600;
+  width: 100px;
+}
+.country-details {
+  padding: 5%;
+}
 
 
 @media screen and (min-width: 800px) {
@@ -140,7 +152,6 @@ body {
   .details {
     display: flex;
     margin: 0 auto;
-    padding: 5%;
     justify-content: space-around;
   }
 

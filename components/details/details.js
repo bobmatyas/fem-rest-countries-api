@@ -41,9 +41,9 @@ function CountryDetailsController(CountryService, $q, $routeParams) {
 
 angular.module('CountryApp').component('countryDetails', {
   template: `
-    <section id="country-details">
+    <section class="country-details">
       
-      <button type="button" class="button">Back</button>
+      <button type="button" class="button button--back" back-button> Back</button>
 
       <div class="details">
         <div class="details__flag">
@@ -74,11 +74,22 @@ angular.module('CountryApp').component('countryDetails', {
           <h3 ng-if="$ctrl.contentToShow.data.borders.length > 0">Borders</h3>
 
           <ul>
-            <li ng-repeat="border in $ctrl.contentToShow.data.borders"><a href="#!/details/{{ border }}">{{ $ctrl.countryName; }}</a></li>
+            <li ng-repeat="border in $ctrl.contentToShow.data.borders"><a href="#!/details/{{ border }}">{{  border }}</a></li>
           </ul>
         </div>
         </div>
       </div>
     </section>`, // or use templateUrl
   controller: CountryDetailsController
+})
+.directive('backButton', function(){
+  return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+          element.bind('click', function () {
+              history.back();
+              scope.$apply();
+          });
+      }
+  }
 });
