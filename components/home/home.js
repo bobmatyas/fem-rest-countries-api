@@ -26,14 +26,22 @@ function HomeController(CountryService, $q) {
         <div class="filters">
           <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
           
-          <select class="filters__select">
-            <option>filter</option>
-          </select>
+          <div class="select-style">
+            <select data-ng-model="search.region">
+              <option value="" selected >Filter By Region</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">Americas</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+        
+          </div>
         </div>
 
         <div class="countries">
 
-        <a href="#!/details/{{ country.alpha3Code }}" class="countrylink" ng-repeat="country in $ctrl.search.data | filter:search">
+        <a href="#!/details/{{ country.alpha3Code }}" class="countrylink" ng-repeat="country in $ctrl.search.data | filter: {name: search.name, region: search.region}">
 
         <div class="country">
           <div ng-if="country.flag" class="country__flag" style="background: url({{ country.flag }}); background-size: cover; background-position: center; height: 185px; border-bottom: 1px solid #eee;">
