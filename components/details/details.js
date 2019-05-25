@@ -71,11 +71,12 @@ angular.module('CountryApp').component('countryDetails', {
             </div>
           </div>
         
-          <h3 ng-if="$ctrl.contentToShow.data.borders.length > 0">Borders</h3>
+          <div ng-if="$ctrl.contentToShow.data.borders.length > 0" class="details__info__border__heading"><strong>Border Countries:</strong> 
+            <div class="details__info__neighbors">
+              <a ng-repeat="border in $ctrl.contentToShow.data.borders" class="details__info__neighbors__list__item" href="#!/details/{{ border }}">{{  border }}</a>
+            </div>
+          </div>
 
-          <ul>
-            <li ng-repeat="border in $ctrl.contentToShow.data.borders"><a href="#!/details/{{ border }}">{{  border }}</a></li>
-          </ul>
         </div>
         </div>
       </div>

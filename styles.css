@@ -11,7 +11,6 @@ body {
 }
 
 .header {
-  height: 80px;
   padding: 25px;
   background-color: #fff;
   box-shadow: 0 2px 3px rgba(128, 127, 127, 0.2);
@@ -20,7 +19,13 @@ body {
 .header__title {
   font-size: 2rem;
   font-weight: 800;
-  color: hsl(200, 15%, 8%)
+  color: hsl(200, 15%, 8%);
+  margin: 0 auto;
+}
+
+.header__link {
+  text-decoration: none;
+  color: hsl(200, 15%, 8%);
 }
 
 .countries {
@@ -63,46 +68,49 @@ body {
 }
 
 .filters {
-  padding: 5%;
+  padding: 0 5%;
+  margin-top: 25px;
+  margin-bottom: 60px;
 }
 
 .filters__input {
   color: hsl(0, 0%, 52%);
   padding: 20px 30px;
-  font-size: 1.2rem;
-  border-radius: 10px;
+  font-size: 1.4rem;
+  border-radius: 7px;
   border: 1px solid #eee;
   box-shadow: 0 1px #f2f2f2;
   width: 80%;
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: center;
+  background-image: url("imgs/icon-search-solid.svg");
+  background-position: 2% 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
 
-.select-style {
-  border: 1px solid #ccc;
-  width: 130px;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: #fff;
-  background: #fff url("imgs/icon-sort-down-solid.svg") no-repeat 90% 50%;
-  font-size: 1.4rem;
-  color: #eee;
-}
 
-.select-style select {
-  padding: 10px 15px;
-  width: 100%;
-  border: none;
-  box-shadow: none;
-  background: transparent;
-  background-image: none;
+
+select {
+  color: hsl(0, 0%, 52%);
+  font-size: 1.2rem;
+  width: 150px;
+  border-radius: 7px;
+  margin-top: 50px;
+  padding: 20px 0 20px 10px;
+  border: 1px solid #eee !important;
+  /* needed */
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* SVG background image */
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='currentColor'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+  background-size: 12px;
+  background-position: calc(100% - 10px) center;
+  background-repeat: no-repeat;
   background-color: #fff;
-  border-radius: 10px;
+  box-shadow: 0 1px #f2f2f2;
 }
-
-.select-style select:focus {
-  outline: none;
-}
-
 
 .countrylink {
   text-decoration: none;
@@ -115,11 +123,25 @@ body {
 
 .details {
   font-size: 1.6rem;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .details__flag__image {
   width: 100%;
+  height: auto;
 }
+
+.details__info__header {
+  margin-top: 50px;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.details__info__statistics__left {
+  margin: 50px 0;
+}
+
 
 .button {
   background-color: #fff;
@@ -138,30 +160,80 @@ body {
   background-repeat: no-repeat;
   background-position: 15px center;
   padding: 10px 40px;
-  color: #000;
+  color: hsl(200, 15%, 8%);
   font-weight: 600;
   width: 100px;
 }
+
 .country-details {
   padding: 5%;
+  margin-top: 20px;
 }
 
+.details__info__border__heading {
+  margin-top: 50px;
+}
 
-@media screen and (min-width: 800px) {
+.details__info__neighbors {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: baseline; 
+  padding: 0;
+}
+
+.details__info__neighbors__list__item {
+  background-color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 1.4rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.details__info__neighbors__list__item:hover {
+  text-decoration: underline;
+  border: 1px solid #666666;
+}
+
+@media screen and (min-width: 1000px) {
   
   .details {
     display: flex;
-    margin: 0 auto;
-    justify-content: space-around;
+    justify-content: flex-start;
   }
 
   .details__flag {
+    min-width: 560px;
+  }
+
+  .details__flag__image {
     width: 560px;
+    height: auto;
+  }
+
+  .details__info {
+    margin-left: 120px;
   }
 
   .details__info__statistics {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; 
+    align-items: flex-start;
+  }
+
+  .details__info__statistics__left {
+    margin: 0;
+  }
+
+  .details__info__statistics__right {
+    margin-left: 145px;
   }
 
 }
