@@ -1,8 +1,64 @@
-
-.country {
-  width: 200px;
+html {
+  box-sizing: border-box;
+  font-size: 10px;
 }
 
-.country__image {
-  width: 100%;
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.header {
+  height: 80px;
+  border-bottom: 1px solid #333;
+  padding: 25px;
+  background-color: #fff;
+}
+
+.header__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: hsl(200, 15%, 8%)
+}
+
+.countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  grid-gap: 50px;
+}
+
+.country {
+  width: 265px;
+  max-width: 265px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-size: 1.4rem;
+  margin: 0 auto;
+}
+
+.country__flag {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 200px;
+}
+
+.country__details {
+  padding: 0 25px;
+}
+
+.filters {
+  padding: 5%;
+}
+
+.filters__input {
+  color: hsl(0, 0%, 52%);
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px #f2f2f2;
+  width: 80%;
 }

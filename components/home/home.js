@@ -23,14 +23,27 @@ function HomeController(CountryService, $q) {
     template: `
       <section id="countries">
 
-        <input type="text" data-ng-model="search.name" placeholder="Search for a country...">
+        <div class="filters">
+          <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
+          
+          <select>
+            <option>filter</option>
+          </select>
+        </div>
+
+        <div class="countries">
 
         <div ng-repeat="country in $ctrl.search.data | filter:search" class="country">
-          <img ng-if="country.flag" class="country__image" src="{{ country.flag }}" alt="flag of {{ country.name }}" />
-          <h2><a href="#!/details/{{ country.alpha3Code }}">{{ country.name }}</a></h2>
-          <p ng-if="country.population"><strong>Population:</strong> {{ country.population }}</p>
-          <p ng-if="country.region"><strong>Region:</strong> {{ country.region }}</p>
-          <p ng-if="country.capital"><strong>Capital:</strong> {{ country.capital }}</p>
+          <div ng-if="country.flag" class="country__flag" style="background: url({{ country.flag }}); background-size: cover; background-position: center; height: 185px;">
+          </div>
+          
+          <div class="country__details">
+            <h2><a href="#!/details/{{ country.alpha3Code }}">{{ country.name }}</a></h2>
+            <p ng-if="country.population"><strong>Population:</strong> {{ country.population }}</p>
+            <p ng-if="country.region"><strong>Region:</strong> {{ country.region }}</p>
+            <p ng-if="country.capital"><strong>Capital:</strong> {{ country.capital }}</p>     
+          </div>
+
         </div>
 
       </section>`, // or use templateUrl
