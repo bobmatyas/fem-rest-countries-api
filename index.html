@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="CountryApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> REST Countries </title>
+  <link href="styles.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+    
+    <header>
+        <h1>Where in the World?</h1>
+    </header>
+
+    <main id="main" data-ng-view>
+        <!-- Anything configured in the route is going to be injected into here -->
+    </main>
+
+    
+
+  
+    <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
+    <script src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="country.service.js"></script>
+    <script src="components/home/home.js"></script>
+    <script src="components/details/details.js"></script>
+
+</body>
+</html>
