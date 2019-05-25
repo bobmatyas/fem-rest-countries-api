@@ -34,7 +34,7 @@ body {
   width: 265px;
   max-width: 265px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 7px;
   border: 1px solid #eee;
   font-size: 1.4rem;
   margin: 0 auto;
@@ -43,8 +43,8 @@ body {
 }
 
 .country__flag {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
   height: 200px;
 }
 
@@ -83,10 +83,12 @@ body {
   overflow: hidden;
   background-color: #fff;
   background: #fff url("imgs/icon-sort-down-solid.svg") no-repeat 90% 50%;
+  font-size: 1.4rem;
+  color: #eee;
 }
 
 .select-style select {
-  padding: 5px 8px;
+  padding: 10px 15px;
   width: 100%;
   border: none;
   box-shadow: none;
@@ -128,6 +130,10 @@ body {
   box-shadow: 0 2px 3px rgba(128, 127, 127, 0.2);
   cursor: pointer;
 }
+
+
+
+
 
 @media screen and (min-width: 800px) {
   

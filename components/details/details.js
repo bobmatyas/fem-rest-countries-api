@@ -17,14 +17,15 @@ function CountryDetailsController(CountryService, $q, $routeParams) {
   }
 
   
-  ctrl.countryNames = '';
+  ctrl.countryName = '';
 
   ctrl.getCountryName = (id) => {
     return $q(function (resolve, reject) {
       CountryService.getCountryName(id)
         .then((response) => {
           let details = response;
-          ctrl.countryNames = details.data.name;
+          ctrl.countryName = details.data.name;
+          return ctrl.countryName;
         });
     });
   }
@@ -73,7 +74,7 @@ angular.module('CountryApp').component('countryDetails', {
           <h3 ng-if="$ctrl.contentToShow.data.borders.length > 0">Borders</h3>
 
           <ul>
-            <li ng-repeat="border in $ctrl.contentToShow.data.borders"><a href="#!/details/{{ border }}">{{ border }}</a></li>
+            <li ng-repeat="border in $ctrl.contentToShow.data.borders"><a href="#!/details/{{ border }}">{{ $ctrl.countryName; }}</a></li>
           </ul>
         </div>
         </div>

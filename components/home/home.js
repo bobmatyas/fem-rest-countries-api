@@ -1,4 +1,4 @@
-function HomeController(CountryService, $q) {
+function HomeController(CountryService, $q, $scope) {
     
   const ctrl = this;
 
@@ -17,6 +17,9 @@ function HomeController(CountryService, $q) {
 
   // run countries on page load
   ctrl.getCountries();
+
+  
+
 }
   
   angular.module('CountryApp').component('home', {
@@ -26,6 +29,7 @@ function HomeController(CountryService, $q) {
         <div class="filters">
           <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
           
+     
           <div class="select-style">
             <select data-ng-model="search.region">
               <option value="" selected >Filter By Region</option>
@@ -58,5 +62,16 @@ function HomeController(CountryService, $q) {
         </a>
 
       </section>`, // or use templateUrl
-    controller: HomeController
-  });
+    controller: HomeController,
+  }).directive('select', function($interpolate) {
+    return {
+      restrict: 'E',
+      require: 'ngModel',
+      link: function(scope, elem, attrs, ctrl) {
+        var defaultOptionTemplate;
+        scope.defaultOptionText = attrs.defaultOption || 'Select...';
+        defaultOptionTemplate = '<option value="" disabled selected style="display: none;">{{defaultOptionText}}</option>';
+        elem.prepend($interpolate(defaultOptionTemplate)(scope));
+      }
+    };
+});
