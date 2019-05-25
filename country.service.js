@@ -12,6 +12,11 @@ function CountryService(http) {
     return http.get(countryRequestURL);
   }
 
+  service.getCountryName = (id) => {
+    let countryRequestNameURL = `https://restcountries.eu/rest/v2/alpha/${ id }`;
+    return http.get(countryRequestNameURL);
+  }
+
 };
     
 
