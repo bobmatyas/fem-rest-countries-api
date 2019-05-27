@@ -6,9 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> REST Countries </title>
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
   <link href="styles.css" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
+<body data-ng-controller="bodyController" data-ng-class="{dark: $scope.dark=0}">
   <header class="header">
     <h1 class="header__title"><a href="index.html" class="header__link">Where in the world?</a></h1>
     <!-- <button type="button">Dark Mode</button> -->
@@ -24,6 +25,7 @@
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="country.service.js"></script>
+    <script src="body.service.js"></script>
     <script src="components/home/home.js"></script>
     <script src="components/details/details.js"></script>
 

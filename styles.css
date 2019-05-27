@@ -76,38 +76,60 @@ body {
 .filters__input {
   color: hsl(0, 0%, 52%);
   padding: 20px 30px;
-  font-size: 1.4rem;
+  font-size: 16px;
   border-radius: 7px;
   border: 1px solid #eee;
   box-shadow: 0 1px #f2f2f2;
   width: 80%;
   font-family: 'Nunito Sans', sans-serif;
   text-align: center;
-  background-image: url("imgs/icon-search-solid.svg");
-  background-position: 2% 50%;
-  background-size: 20px;
-  background-repeat: no-repeat;
 }
+
+
+.input-icons i { 
+  position: absolute; 
+} 
+
+.input-icons { 
+  width: 100%; 
+  margin-bottom: 10px; 
+} 
+
+.icon-search { 
+  padding: 20px 0 5px 20px;
+  min-width: 70px;
+}
+
+.icon-arrow { 
+  padding: 20px 0 0 5px;
+  width: 20px;
+  text-align: right;
+  margin: 0;
+}
+
+.input-field { 
+  width: 100%; 
+  padding: 10px; 
+  text-align: center; 
+  color: hsl(0, 0%, 52%);
+} 
+
 
 
 
 select {
   color: hsl(0, 0%, 52%);
-  font-size: 1.2rem;
-  width: 150px;
+  font-size: 16px;
+  width: 170px;
   border-radius: 7px;
-  margin-top: 50px;
-  padding: 20px 0 20px 10px;
+  /* margin-top: 50px; */
+  padding: 20px 0 20px 40px;
   border: 1px solid #eee !important;
+
   /* needed */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* SVG background image */
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='currentColor'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
-  background-size: 12px;
-  background-position: calc(100% - 10px) center;
-  background-repeat: no-repeat;
   background-color: #fff;
   box-shadow: 0 1px #f2f2f2;
 }
@@ -186,10 +208,9 @@ select {
 .details__info__neighbors__list__item {
   background-color: #fff;
   text-align: center;
-  padding: 5px 10px;
+  padding: 7px 25px;
   border-radius: 5px;
   border: 1px solid #eee;
-  width: 50px;
   margin-right: 10px;
   margin-top: 10px;
   font-size: 1.4rem;
@@ -200,6 +221,17 @@ select {
 .details__info__neighbors__list__item:hover {
   text-decoration: underline;
   border: 1px solid #666666;
+}
+
+.fa {
+  display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: hsl(0, 0%, 52%);
+    font-size: 20px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -236,4 +268,8 @@ select {
     margin-left: 145px;
   }
 
+}
+
+.ng-scope .dark {
+  background-color: red;
 }

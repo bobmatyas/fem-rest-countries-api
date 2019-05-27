@@ -1,43 +1,61 @@
-function CountryDetailsController(CountryService, $q, $routeParams) {
+function CountryDetailsController(CountryService, $q, $routeParams, $scope) {
   
   var ctrl = this;
 
   ctrl.contentToShow = '';
+  
+  ctrl.$onInit = function() {
+    ctrl.getCountryDetails($routeParams.id);
+  }
+
+  $scope.setBodyClass = '';
+
+  ctrl.borderCountries = [];
+
+  ctrl.borderNames = [];
 
   ctrl.getCountryDetails = (id) => {
-    
     return $q(function (resolve, reject) {
       CountryService.getCountryDetails(id)
         .then((response) => {
           let details = response;
           ctrl.contentToShow = details;
+          if (details.data.borders.length > 0) {
+            for (let i = 0; i < details.data.borders.length; i++) {
+              ctrl.borderCountries.push(details.data.borders[i]);
+              ctrl.getCountry(details.data.borders[i]);
+            };
+          }
+
           resolve();
+        })
+        .catch( function(error) {
+          console.error(error);
+          throw error;
         });
     });
   }
 
-  
-  ctrl.countryName = '';
-
-  ctrl.getCountryName = (id) => {
+  ctrl.getCountry = (id) => {
     return $q(function (resolve, reject) {
-      CountryService.getCountryName(id)
+      CountryService.getCountryDetails(id)
         .then((response) => {
           let details = response;
-          ctrl.countryName = details.data.name;
-          return ctrl.countryName;
+          resolve();
+          let country = {
+            'code': id,
+            'name': details.data.name
+          };
+          ctrl.borderNames.push(country);
+          
+        })
+        .catch( function(error) {
+          console.error(error);
+          throw error;
         });
     });
   }
-
-  // load country info on initial page load
-
-  ctrl.getCountryDetails($routeParams.id);
-
 }
-
-
-
 
 angular.module('CountryApp').component('countryDetails', {
   template: `
@@ -46,6 +64,7 @@ angular.module('CountryApp').component('countryDetails', {
       <button type="button" class="button button--back" back-button> Back</button>
 
       <div class="details">
+
         <div class="details__flag">
           <img ng-if="$ctrl.contentToShow.data.flag" class="details__flag__image" src="{{ $ctrl.contentToShow.data.flag }}" alt="flag of {{ $ctrl.contentToShow.data.name }}" />
         </div>
@@ -73,7 +92,7 @@ angular.module('CountryApp').component('countryDetails', {
         
           <div ng-if="$ctrl.contentToShow.data.borders.length > 0" class="details__info__border__heading"><strong>Border Countries:</strong> 
             <div class="details__info__neighbors">
-              <a ng-repeat="border in $ctrl.contentToShow.data.borders" class="details__info__neighbors__list__item" href="#!/details/{{ border }}">{{  border }}</a>
+              <a ng-repeat="border in $ctrl.borderNames" class="details__info__neighbors__list__item" href="#!/details/{{ border.code }}">{{ border.name }}</a>
             </div>
           </div>
 

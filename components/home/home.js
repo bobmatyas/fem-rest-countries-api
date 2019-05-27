@@ -4,6 +4,8 @@ function HomeController(CountryService, $q, $scope) {
 
   ctrl.search = '';
 
+  $scope.dark = 1;
+
   ctrl.getCountries = () => {
     
     return $q(function (resolve, reject) {
@@ -27,10 +29,14 @@ function HomeController(CountryService, $q, $scope) {
       <section id="countries">
 
         <div class="filters">
-          <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
+          <div class="input-icons">
+          <i class="fa fa-search icon-search"></i> 
           
-     
-          <div class="select-style">
+            <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
+          </div>
+
+          <div class="select-style input-icons">
+            <i class="fa fa-caret-down icon-arrow"></i> 
             <select data-ng-model="search.region">
               <option value="" selected >Filter By Region</option>
               <option value="Africa">Africa</option>
