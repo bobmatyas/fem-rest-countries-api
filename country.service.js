@@ -2,6 +2,8 @@ function CountryService($http) {
     
   const service = this;
 
+  service.dark = '';
+  
   service.getCountries = () => {        
     return $http.get('https://restcountries.eu/rest/v2/all?fields=name;capital;region;flag;population;alpha3Code', {cache: true})
   }

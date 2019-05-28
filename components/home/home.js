@@ -1,10 +1,8 @@
-function HomeController(CountryService, $q, $scope) {
+function HomeController(CountryService, $q) {
     
   const ctrl = this;
 
   ctrl.search = '';
-
-  $scope.dark = 1;
 
   ctrl.getCountries = () => {
     

@@ -1,4 +1,4 @@
-function CountryDetailsController(CountryService, $q, $routeParams, $scope) {
+function CountryDetailsController(CountryService, $q, $routeParams, $rootScope) {
   
   var ctrl = this;
 
@@ -7,8 +7,6 @@ function CountryDetailsController(CountryService, $q, $routeParams, $scope) {
   ctrl.$onInit = function() {
     ctrl.getCountryDetails($routeParams.id);
   }
-
-  $scope.setBodyClass = '';
 
   ctrl.borderCountries = [];
 
