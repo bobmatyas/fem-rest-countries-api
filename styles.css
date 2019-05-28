@@ -31,19 +31,20 @@ body {
 .countries {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-  padding: 3%;
+  padding: 3% 5%;
   grid-gap: 25px;
 }
 
 .country {
-  width: 265px;
-  max-width: 265px;
   background-color: #fff;
+  max-width: 275px;
   border-radius: 7px;
   border: 1px solid #eee;
   font-size: 1.4rem;
   margin: 0 auto;
   box-shadow: 0 2px 3px rgba(128, 127, 127, 0.2);
+  margin: 0;
+  padding: 0;
 }
 
 .country__flag {
@@ -160,10 +161,10 @@ select {
   font-weight: 800;
 }
 
-.details__info__statistics__left {
-  margin: 50px 0;
+.details__info__statistics {
+  display: flex;
+  justify-content: flex-start;
 }
-
 
 .button {
   background-color: #fff;
@@ -256,8 +257,8 @@ select {
 
   .details__info__statistics {
     display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;
+    justify-content: flex-start; 
+    align-items: center;
   }
 
   .details__info__statistics__left {
