@@ -12,20 +12,22 @@ body {
 }
 
 .header {
-  padding: 25px;
-  background-color: #fff;
   box-shadow: 0 2px 3px rgba(128, 127, 127, 0.2);
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 5%;
+  background-color: #fff;
 }
 
 .header__title {
   font-size: 2rem;
   font-weight: 800;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .header__link {
   text-decoration: none;
-  color: hsl(200, 15%, 8%);
+  color: inherit;
 }
 
 .countries {
@@ -37,7 +39,6 @@ body {
 
 .country {
   background-color: #fff;
-  max-width: 275px;
   border-radius: 7px;
   border: 1px solid #eee;
   font-size: 1.4rem;
@@ -68,31 +69,30 @@ body {
 }
 
 .filters {
-  padding: 0 5%;
-  margin-top: 25px;
-  margin-bottom: 60px;
+  margin: 25px 5% 60px 5%;
 }
 
 .filters__input {
   color: hsl(0, 0%, 52%);
-  padding: 20px 30px;
+  padding: 20px 20px 20px 60px;
   font-size: 16px;
   border-radius: 7px;
   border: 1px solid #eee;
   box-shadow: 0 1px #f2f2f2;
-  width: 80%;
+  width: 240px;
   font-family: 'Nunito Sans', sans-serif;
-  text-align: center;
 }
 
 
 .input-icons i { 
   position: absolute; 
+  font-size: 20px;
 } 
 
 .input-icons { 
   width: 100%; 
   margin-bottom: 10px; 
+  color: hsl(0, 0%, 52%);
 } 
 
 .icon-search { 
@@ -111,7 +111,7 @@ body {
   width: 100%; 
   padding: 10px; 
   text-align: center; 
-  color: hsl(0, 0%, 52%);
+  color: inherit;
 } 
 
 
@@ -124,14 +124,13 @@ select {
   border-radius: 7px;
   /* margin-top: 50px; */
   padding: 20px 0 20px 40px;
-  border: 1px solid #eee !important;
-
   /* needed */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-color: #fff;
   box-shadow: 0 1px #f2f2f2;
+  font-size: 1.4rem;
 }
 
 .countrylink {
@@ -171,21 +170,17 @@ select {
   border-radius: 5px;
   border: 1px solid #dfdfdf;
   padding: 5px 10px;
-  color: #000;
+  color: inherit;
   box-shadow: 0 2px 3px rgba(128, 127, 127, 0.2);
   cursor: pointer;
 }
 
-.button--back {
-  background-image: url("imgs/icon-arrow-left-solid.svg");
-  background-repeat: none;
-  background-size: 10%;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  padding: 10px 40px;
-  color: hsl(200, 15%, 8%);
+.button--back {  
+  padding: 10px 20px 10px 20px;
+  color: inherit;
   font-weight: 600;
-  width: 100px;
+  width: 120px;
+  text-align: left;
 }
 
 .country-details {
@@ -231,15 +226,35 @@ select {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: hsl(0, 0%, 52%);
-    font-size: 20px;
 }
 
-@media screen and (min-width: 1000px) {
+.toggle__dark__mode {
+  background-color: none;
+  border: none;
+  background-color: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: inherit;
+}
+
+/* attribution imported from starter */
+
+.attribution { font-size: 11px; text-align: center; color: inherit; margin: 50px; }
+.attribution a { color: inherit; }
+
+
+
+@media screen and (min-width: 900px) {
   
   .details {
     display: flex;
     justify-content: flex-start;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
   }
 
   .details__flag {
@@ -258,7 +273,6 @@ select {
   .details__info__statistics {
     display: flex;
     justify-content: flex-start; 
-    align-items: center;
   }
 
   .details__info__statistics__left {
@@ -271,11 +285,74 @@ select {
 
 }
 
+/* dark mode styling */
+
 .dark {
   background-color: hsl(207, 26%, 17%);
   color: hsl(0, 0%, 100%);
 }
 
-.dark .countries .country {
-  background-color: hsl(207, 26%, 17%);
+.dark .header {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0 2px 3px rgba(9, 15, 19, 0.8);
 }
+
+.dark .countries .country {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0 2px 3px rgba(9, 15, 19, 0.8);
+  border: none;
+}
+
+.dark .button--back {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.dark .details__info__neighbors__list__item {
+  background-color: hsl(209, 23%, 22%);
+  color: inherit;  
+}
+
+.dark .input-icons {
+  color: hsl(0, 0%, 100%);
+}
+
+.dark .filters__input {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0 2px 3px rgba(9, 15, 19, 0.8);
+  border: none;
+  color: hsl(0, 0%, 100%);
+}
+
+.dark .input-icons select {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0 2px 3px rgba(9, 15, 19, 0.8);
+  border: none;
+  color: hsl(0, 0%, 100%);
+  outline: none;
+}
+
+.dark .countrylink :hover {
+  background-color: hsl(209, 16%, 32%);
+  border-radius: 7px;
+}
+
+.dark .details__info__neighbors__list__item { 
+  border: none;
+}
+
+.dark .button {
+  box-shadow: 0 2px 3px rgba(9, 15, 19, 0.8);
+  border: none;
+}
+
+.dark ::placeholder { /* Firefox, Chrome, Opera */ 
+  color: hsl(0, 0%, 100%);
+} 
+
+.dark :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+  color: hsl(0, 0%, 100%);
+} 
+
+.dark ::-ms-input-placeholder { /* Microsoft Edge */ 
+  color: hsl(0, 0%, 100%); 
+} 

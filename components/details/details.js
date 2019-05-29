@@ -59,7 +59,7 @@ angular.module('CountryApp').component('countryDetails', {
   template: `
     <section class="country-details">
       
-      <button type="button" class="button button--back" back-button> Back</button>
+      <button type="button" class="button button--back" back-button><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 
       <div class="details">
 

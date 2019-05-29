@@ -24,26 +24,26 @@ function HomeController(CountryService, $q) {
   
   angular.module('CountryApp').component('home', {
     template: `
-      <section id="countries">
-
         <div class="filters">
-          <div class="input-icons">
-          <i class="fa fa-search icon-search"></i> 
-          
-            <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
+          <div class="filters__right">
+            <div class="input-icons">
+              <i class="fa fa-search icon-search"></i>           
+              <input type="text" class="filters__input" data-ng-model="search.name" placeholder="Search for a country...">
+            </div>
           </div>
 
-          <div class="select-style input-icons">
-            <i class="fa fa-caret-down icon-arrow"></i> 
-            <select data-ng-model="search.region">
-              <option value="" selected >Filter By Region</option>
-              <option value="Africa">Africa</option>
-              <option value="Americas">Americas</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="Oceania">Oceania</option>
-            </select>
-        
+          <div class="filters__left">
+            <div class="select-style input-icons">
+              <i class="fa fa-caret-down icon-arrow"></i> 
+              <select data-ng-model="search.region">
+                <option value="" selected >Filter By Region</option>
+                <option value="Africa">Africa</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -52,7 +52,7 @@ function HomeController(CountryService, $q) {
         <a href="#!/details/{{ country.alpha3Code }}" class="countrylink" ng-repeat="country in $ctrl.search.data | filter: {name: search.name, region: search.region}">
 
         <div class="country">
-          <div ng-if="country.flag" class="country__flag" style="background: url({{ country.flag }}); background-size: cover; background-position: center; height: 185px; border-bottom: 1px solid #eee;">
+          <div ng-if="country.flag" class="country__flag" style="background: url({{ country.flag }}); background-size: cover; background-position: center; height: 185px;">
           </div>
           
           <div class="country__details">
@@ -64,7 +64,6 @@ function HomeController(CountryService, $q) {
 
         </div>
         </a>
-
-      </section>`, // or use templateUrl
+      `, // or use templateUrl
     controller: HomeController,
   });
