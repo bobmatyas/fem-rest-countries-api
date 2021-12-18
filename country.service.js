@@ -5,17 +5,17 @@ function CountryService($http) {
   service.dark = '';
   
   service.getCountries = () => {        
-    return $http.get('https://restcountries.eu/rest/v2/all?fields=name;capital;region;flag;population;alpha3Code', {cache: true})
+    return $http.get('https://restcountries.com/v2/all', {cache: true})
   }
 
 
   service.getCountryDetails = (id) => {
-    let countryRequestURL = `https://restcountries.eu/rest/v2/alpha/${ id }`;
+    let countryRequestURL = `https://restcountries.com/v2/alpha/${ id }`;
     return $http.get(countryRequestURL);
   }
 
   service.getCountryName = (id) => {
-    let countryNameURL = `https://restcountries.eu/rest/v2/alpha/${ id }`;
+    let countryNameURL = `https://restcountries.com/v2/alpha/${ id }`;
     return $http.get(countryNameURL);
   }
 
